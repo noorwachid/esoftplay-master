@@ -6,7 +6,7 @@ if (empty($type))
 	include 'layout.login.php';
 }else{
 	$MAINURL= _URL._ADMIN;
-	if (!empty($_POST['relogin']))
+	if (!empty($_GET['relogin']))
 	{
 		include 'logout.php';
 		die();
@@ -57,9 +57,8 @@ if (empty($type))
 				<h1><?php echo $msg; ?></h1>
 				<p>Please contact administrator to get privilege to login for email <?php echo $email; ?>. Or if you want to try another shot to sign in, you may want to click the button below.</p>
 				<p>
-					<form action="" method="POST" role="form">
-						<button type="submit" class="btn btn-default" name="relogin" value="1"><?php echo icon('repeat'); ?> Relogin</button>
-					</form>
+					<?php echo $sys->button($MAINURL, 'refresh', 'refresh'); ?>
+					<?php echo $sys->button($MAINURL.'?relogin=1', 'relogin', 'repeat'); ?>
 				</p>
 			</div>
 		</div>
