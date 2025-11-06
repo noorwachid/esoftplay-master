@@ -19,7 +19,7 @@
 					{
 						case 'filePicture':
 								echo '<a id="thumbUrl' . $count . '" rel="thumbPhotos" href="' . $file['path'] . '">';
-								echo '<img src="' . appendQueryString($thumbnailBaseUrl, 'path=' . $file['path']) . '" id="thumbImg' . $count . '"></a>' . "\n";
+								echo '<img src="' . appendQueryString($thumbnailBaseUrl, 'path=' . urlencode($file['path'])) . '" id="thumbImg' . $count . '"></a>' . "\n";
 								break;
 						case 'fileFlash':
 						case 'fileVideo':

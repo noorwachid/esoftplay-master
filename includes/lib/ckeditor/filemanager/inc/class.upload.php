@@ -196,6 +196,10 @@ class Upload
 		}
 		$this->dirPath = $dest;
 		$fileName =  basename($this->_value['name']);
+		if (strpos($fileName, '&') !== false)
+		{
+			$fileName = str_replace('&', 'n', $fileName);
+		}
 
 		$dotIndex = strrpos($fileName, '.');
 		$this->fileExtension = '';
