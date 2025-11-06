@@ -1,6 +1,6 @@
 <?php  if (!defined('_VALID_BBC')) exit('No direct script access allowed');
 
-include 'login-type.php';
+include_once 'login-type.php';
 user_logout($user->id);
 if (empty($type))
 {
@@ -16,8 +16,8 @@ if (empty($type))
 			break;
 		case '1':
 		default:
-			$url = 'https://accounts.google.com/Logout?hl=en&continue=https%3A%2F%2Fwww.google.com';
+			$url = 'https://accounts.google.com/Logout?hl=en&continue='.urlencode('https://appengine.google.com/_ah/logout?continue='.urlencode(_URL._ADMIN));
 			break;
 	}
-	redirect('http://auth.fisip.net/logout?redirect='.urlencode($url));
+	redirect('https://auth.fisip.net/logout?redirect='.urlencode($url));
 }

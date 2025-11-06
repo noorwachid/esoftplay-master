@@ -6,6 +6,11 @@ if (empty($type))
 	include 'layout.login.php';
 }else{
 	$MAINURL= _URL._ADMIN;
+	if (!empty($_POST['relogin']))
+	{
+		include 'logout.php';
+		die();
+	}
 	if (!empty($user->id))
 	{
 		redirect($MAINURL);
@@ -51,7 +56,11 @@ if (empty($type))
 			<div class="jumbotron">
 				<h1><?php echo $msg; ?></h1>
 				<p>Please contact administrator to get privilege to login for email <?php echo $email; ?>. Or if you want to try another shot to sign in, you may want to click the button below.</p>
-				<p><?php echo $sys->button($MAINURL, 'Relogin', 'repeat'); ?></p>
+				<p>
+					<form action="" method="POST" role="form">
+						<button type="submit" class="btn btn-default" name="relogin" value="1"><?php echo icon('repeat'); ?> Relogin</button>
+					</form>
+				</p>
 			</div>
 		</div>
 		<?php

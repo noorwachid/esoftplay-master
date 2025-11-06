@@ -541,6 +541,8 @@ function user_logout($user_id, $is_admin = 0)
 	{
 		unset($_SESSION[bbcAuth]);
 		user_call_func(__FUNCTION__, $user_id); // user_id
+	}else{
+		unset($_SESSION[bbcAuth]);
 	}
 }
 
