@@ -330,7 +330,7 @@ if ($id > 0)
 				$src = content_src($data['image'], false, true);
 				if (empty($src))
 				{
-					$src = 'http://demo.fisip.net/profile/images/modules/content/none.gif';
+					$src = _URL.'images/modules/content/none.gif';
 				}else{
 					if(!empty($_POST['submit_update']))
 					{
