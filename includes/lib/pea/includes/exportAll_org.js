@@ -164,7 +164,7 @@ _Bbc(function($){
 											if(isNumeric(col)) {
 												if (col.length < 11) {
 													if (col[0]!='0' || col == '0') {
-														col=parseInt(col);
+														col=Number(col);
 													}
 												}
 											}
